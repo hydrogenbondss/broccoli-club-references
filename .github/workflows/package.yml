@@ -3,6 +3,7 @@ name: Package visual references
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   package-references:
