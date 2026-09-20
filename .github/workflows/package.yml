@@ -1,0 +1,20 @@
+name: Package visual references
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  package-references:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package JPG references
+        run: zip -9 broccoli-club-references.zip ./*.jpg
+      - name: Upload reference pack
+        uses: actions/upload-artifact@v4
+        with:
+          name: broccoli-club-references
+          path: broccoli-club-references.zip
